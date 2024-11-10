@@ -3,6 +3,7 @@ package app.controllers;
 import app.model.Car;
 import app.service.CarsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,13 +15,17 @@ public class CarsController {
     @Autowired
     private CarsService carsService;
 
+    @Value("${maxCar}")
+    private int maxCar;
+
     @GetMapping("/cars")
-    public String carsPage(@RequestParam(value = "count", required = false) Integer count,
-                           Model model) {
-        if (count != null) {
-            model.addAttribute("cars", carsService.listCars(count));
-        } else {
+    public String carsPage(@RequestParam(value = "count", required = false) Integer count, Model model) {
+
+        if (count == null || count > maxCar) {
             model.addAttribute("cars", carsService.listCars());
+        } else {
+            model.addAttribute("cars", carsService.listCars(count));
+
         }
         return "cars/cars_table";
     }
