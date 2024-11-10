@@ -1,16 +1,27 @@
-
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
-
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="ISO-8859-1">
-    <title>My app</title>
+    <title>Car List</title>
 </head>
-
 <body>
-
-<p>Here will be cars table</p>
-
+<h2>Car List</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Model</th>
+        <th>Color</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- ????????? ?? ?????? cars, ???????????? ? ?????? ??????????? -->
+    <tr th:each="car : ${cars}">
+        <td th:text="${car.id}"></td>
+        <td th:text="${car.model}"></td>
+        <td th:text="${car.color}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
-
 </html>
+

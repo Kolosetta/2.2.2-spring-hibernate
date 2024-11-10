@@ -27,4 +27,12 @@ public class CarDaoImp implements CarDao {
         return query.getResultList();
     }
 
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<Car> listCars(int count) {
+        TypedQuery<Car> query = sessionFactory.getCurrentSession().createQuery("from Car");
+        query.setMaxResults(count);
+        return query.getResultList();
+    }
+
 }

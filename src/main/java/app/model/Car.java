@@ -11,7 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "cars")
-public class Car {
+public class  Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,12 +20,12 @@ public class Car {
     @Column(name = "model")
     private String model;
 
-    @Column(name = "series")
-    private String series;
+    @Column(name = "color")
+    private String color;
 
-    public Car(String model, String series) {
+    public Car(String model, String color) {
         this.model = model;
-        this.series = series;
+        this.color = color;
     }
 
 }
