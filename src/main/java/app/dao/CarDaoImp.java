@@ -29,8 +29,25 @@ public class CarDaoImp implements CarDao {
 
     @Override
     @SuppressWarnings("unchecked")
+    public List<Car> listCars(String sortBy) {
+        String hql = "FROM Car c ORDER BY c." + sortBy.toLowerCase() + " ASC";
+        TypedQuery query = sessionFactory.getCurrentSession().createQuery(hql);
+        return query.getResultList();
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
     public List<Car> listCars(int count) {
         TypedQuery<Car> query = sessionFactory.getCurrentSession().createQuery("from Car");
+        query.setMaxResults(count);
+        return query.getResultList();
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<Car> listCars(int count, String sortBy) {
+        String hql = "FROM Car c ORDER BY c." + sortBy.toLowerCase() + " ASC";
+        TypedQuery query = sessionFactory.getCurrentSession().createQuery(hql);
         query.setMaxResults(count);
         return query.getResultList();
     }

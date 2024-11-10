@@ -10,5 +10,9 @@ public interface CarsService {
 
     List<Car> listCars();
 
+    List<Car> listCars(String sortBy);
+
     List<Car> listCars(int count);
+
+    List<Car> listCars(int count, String sortBy);
 }
