@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class CarsServiceImp implements CarsService {
+public class CarServiceImp implements CarService {
 
     @Autowired
     private CarDao carDao;
@@ -25,6 +25,7 @@ public class CarsServiceImp implements CarsService {
     public List<Car> listCars() {
         return carDao.listCars();
     }
+
     @Transactional(readOnly = true)
     @Override
     public List<Car> listCars(String sortBy) {

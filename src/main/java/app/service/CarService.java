@@ -5,7 +5,7 @@ import app.model.Car;
 
 import java.util.List;
 
-public interface CarsService {
+public interface CarService {
     void add(Car car);
 
     List<Car> listCars();
