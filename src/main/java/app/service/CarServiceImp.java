@@ -26,4 +26,22 @@ public class CarServiceImp implements CarService {
         return carDao.listCars();
     }
 
+    @Transactional(readOnly = true)
+    @Override
+    public List<Car> listCars(String sortBy) {
+        return carDao.listCars(sortBy);
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public List<Car> listCars(int count) {
+        return carDao.listCars(count);
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public List<Car> listCars(int count, String sortBy) {
+        return carDao.listCars(count, sortBy);
+    }
+
 }

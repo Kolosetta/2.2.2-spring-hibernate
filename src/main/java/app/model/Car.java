@@ -1,10 +1,10 @@
 package app.model;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
 
 @Getter
 @Setter
@@ -20,12 +20,12 @@ public class Car {
     @Column(name = "model")
     private String model;
 
-    @Column(name = "series")
-    private String series;
+    @Column(name = "color")
+    private String color;
 
-    public Car(String model, String series) {
+    public Car(String model, String color) {
         this.model = model;
-        this.series = series;
+        this.color = color;
     }
 
 }
