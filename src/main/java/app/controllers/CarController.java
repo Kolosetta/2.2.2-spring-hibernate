@@ -2,8 +2,10 @@ package app.controllers;
 
 import app.exceptions.DisabledFilterException;
 import app.model.Car;
+import app.model.User;
 import app.service.CarFilterService;
 import app.service.CarService;
+import app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +24,9 @@ public class CarController {
     @Autowired
     private CarService carService;
 
+    @Autowired
+    private UserService userService;
+
     @GetMapping("/cars")
     public String carsPage(@RequestParam(value = "count", required = false) Integer count, @RequestParam(value = "sortBy", required = false) String sortBy, Model model) {
 
@@ -31,11 +36,11 @@ public class CarController {
 
     @GetMapping("/filldb")
     public String fillDBPage() {
-        carService.add(new Car("Bmw", "black"));
-        carService.add(new Car("Volvo", "white"));
-        carService.add(new Car("Opel", "red"));
-        carService.add(new Car("Audi", "green"));
-        carService.add(new Car("Nissan", "yellow"));
+        userService.add(new User("name1", "surname1", "email1", new Car("Bmw", "black", 20000)));
+        userService.add(new User("name2", "surname2", "email2",new Car("Volvo", "white", 30000)));
+        userService.add(new User("name3", "surname3", "email3",new Car("Mazda", "yellow", 10000)));
+        userService.add(new User("name4", "surname4", "email4",new Car("Nissan", "red", 5000)));
+        userService.add(new User("name5", "surname5", "email5",new Car("Dodge", "blue", 70000)));
         return "cars/cars_added_info";
     }
 

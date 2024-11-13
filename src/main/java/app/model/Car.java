@@ -23,9 +23,12 @@ public class Car {
     @Column(name = "color")
     private String color;
 
-    public Car(String model, String color) {
+    @Column(name = "price")
+    private int price;
+
+    public Car(String model, String color, int price) {
         this.model = model;
         this.color = color;
+        this.price = price;
     }
-
 }
