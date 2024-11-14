@@ -1,4 +1,4 @@
-package app.service;
+package app.services.car;
 
 import app.dao.CarDao;
 import app.model.Car;

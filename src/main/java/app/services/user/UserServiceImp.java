@@ -1,4 +1,4 @@
-package app.service;
+package app.services.user;
 
 import app.dao.UserDao;
 import app.model.Car;
@@ -31,6 +31,11 @@ public class UserServiceImp implements UserService {
     @Override
     public User getUserByCar(Car car) {
         return userDao.getUserByCar(car);
+    }
+
+    @Override
+    public User getUserById(int id) {
+        return userDao.getUserById(id);
     }
 
 }

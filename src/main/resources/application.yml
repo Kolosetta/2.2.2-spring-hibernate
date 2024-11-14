@@ -17,5 +17,13 @@ spring:
 maxCar: 3
 disabledFiltersList: Model,Color
 
+loan:
+  minParametersForLoanApprove:
+    carCost: 1000000
+    userIncome: 40000
+  maxApproveSumVariables:
+    percentsOfCarCost: 0.30
+    countOfMonthsIncome: 6
+  usersIncomeUri: https://66055cd12ca9478ea1801f2e.mockapi.io/api/users/income
 
 

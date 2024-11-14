@@ -1,4 +1,4 @@
-package app.service;
+package app.services.user;
 
 
 import app.model.Car;
@@ -12,5 +12,7 @@ public interface UserService {
     List<User> listUsers();
 
     User getUserByCar(Car car);
+
+    User getUserById(int id);
 
 }

@@ -1,6 +1,7 @@
 package app.model;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,6 +16,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Setter(AccessLevel.PRIVATE)
     private Long id;
 
     @Column(name = "name")
@@ -25,6 +27,9 @@ public class User {
 
     @Column(name = "email")
     private String email;
+
+    @Column(name = "income", columnDefinition = "int default 0")
+    private int income;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "car_id")

@@ -1,4 +1,4 @@
-package app.service;
+package app.services.car;
 
 import app.exceptions.DisabledFilterException;
 import app.model.Car;

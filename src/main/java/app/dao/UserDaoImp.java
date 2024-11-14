@@ -36,4 +36,9 @@ public class UserDaoImp implements UserDao {
         return query.getResultStream().findFirst().orElse(null);
     }
 
+    @Override
+    public User getUserById(int id) {
+        return entityManager.find(User.class, id);
+    }
+
 }
